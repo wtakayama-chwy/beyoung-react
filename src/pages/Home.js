@@ -1,12 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
+// Importando Componentes
+import Login from '../components/Login/Login'
 
 const NotFound = () => {
   return (
       <>
-        <h1>Hello Beyoung</h1>
+        <Login />
       </>
   );
 }
 
-export default NotFound;
+export default NotFound

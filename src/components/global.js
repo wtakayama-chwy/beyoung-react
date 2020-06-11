@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { mediaQuery } from './Helpers/mediaQuery'
-import { backgroundColor, textColor, textShadow } from './Themes/theme';
+import { backgroundColor, textColor } from './Themes/theme';
 
 export default createGlobalStyle`
     body {
@@ -11,7 +11,6 @@ export default createGlobalStyle`
         font-weight: 300;
         line-height: 1.2222222222em;
         text-align: left;
-        text-shadow: ${textShadow};            
         background: ${backgroundColor};
         color: ${textColor};
         margin: 0;

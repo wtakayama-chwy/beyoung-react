@@ -10,6 +10,10 @@ const Wrapper = styled.div`
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
+    height: calc(100vh - 54px); /* 54px = header height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 ReactDOM.render(
