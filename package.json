@@ -35,6 +35,10 @@
     "concurrently": "^4.1.1",
     "faker": "^4.1.0",
     "http-server": "^0.12.3",
-    "rimraf": "^2.6.3"
+    "node-sass": "^4.14.1",
+    "react-router-dom": "^5.2.0",
+    "rimraf": "^2.6.3",
+    "styled-components": "^5.1.1",
+    "styled-theming": "^2.2.0"
   }
 }
