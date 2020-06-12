@@ -1,7 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
 import StyledButton from '../Button/StyledButton'
 import StyledInput from '../Input/StyledInput'
+
+import { invertColor } from '../Themes/theme'
 
 const StyledForm = styled.form`
     display: flex;
@@ -10,6 +14,11 @@ const StyledForm = styled.form`
     align-items: center;
     height: 40vh;
     min-width: 300px;
+
+    a { 
+      text-decoration: none;
+      color: ${invertColor};
+    }
 `
 
 const Login = () => {
@@ -18,7 +27,11 @@ const Login = () => {
         <StyledForm>
             <h1>Login</h1>
             <StyledInput />
-            <StyledButton type="tertiary">Entrar</StyledButton>
+            <Link to="/pedidos">
+              <StyledButton type="tertiary">
+                Entrar
+              </StyledButton>
+            </Link>
         </StyledForm>
     </>
   )

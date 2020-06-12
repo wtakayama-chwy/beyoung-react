@@ -24,7 +24,7 @@ const StyledButton = styled.button`
     display: flex;
     align-items: center;   
     justify-content: center; 
-    width: 100%;
+    width: 100vw;
     max-width: 300px;
     min-height: 42px;
     padding: 0.5em 1em;
@@ -38,12 +38,6 @@ const StyledButton = styled.button`
     ${({ type }) => getStyle(type) };
     :focus {
         outline: none;    
-    }
-    @media ${mediaQuery.tablet} {
-        height: 22px;
-        margin-top: 20px;
-        width: 52%;        
-        padding: 2px 3.333333333333333%;
     }
 `;
 
