@@ -6,7 +6,10 @@
     "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-icons": "^3.10.0",
+    "react-intl": "^4.6.9",
+    "react-scripts": "3.0.1",
+    "react-switch": "^5.0.1"
   },
   "scripts": {
     "dev": "concurrently \"npm run api\" \"npm start\"",
@@ -37,7 +40,7 @@
     "http-server": "^0.12.3",
     "node-sass": "^4.14.1",
     "react-router-dom": "^5.2.0",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.2",
     "styled-components": "^5.1.1",
     "styled-theming": "^2.2.0"
   }

@@ -1,9 +1,9 @@
 import React from "react";
 import styled, { ThemeProvider } from 'styled-components';
-import { mediaQuery } from '../Helpers/mediaQuery';
+// import { mediaQuery } from '../Helpers/mediaQuery';
 
 const ThemeToggleContext = React.createContext({
-    toggle: () => {}
+    toggle: () => {},
 });
 
 export const useTheme = () => React.useContext(ThemeToggleContext);

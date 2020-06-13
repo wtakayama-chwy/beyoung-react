@@ -2,9 +2,9 @@ import React from 'react'
 
 import Pedido from '../components/Pedido/Pedido'
 
-const Pedidos = () => {
+const Pedidos = (props) => {
     return (
-        <Pedido></Pedido>
+        <Pedido {...props}></Pedido>
     )
 }
 

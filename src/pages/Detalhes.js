@@ -1,10 +1,10 @@
 import React from 'react'
 import DetalhesPedido from '../components/DetalhesPedido/DetalhesPedido'
 
-const Detalhes = () => {
+const Detalhes = (props) => {
     return (
         <>
-            <DetalhesPedido />
+            <DetalhesPedido {...props} />
         </>
     )
 }
