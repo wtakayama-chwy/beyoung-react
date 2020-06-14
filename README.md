@@ -1,46 +1,59 @@
-# Front-End Test
+# Beyoung Challenge
 
-Clone este projeto e mande um .zip com o resultado final.
+<h3 align="center">
+    <img alt="Logo" title="#logo" width="450px" src="https://mir-s3-cdn-cf.behance.net/projects/404/f8b68d90340969.Y3JvcCw5MDAsNzA0LDQ2MSww.jpg">
+    <br><br>
+    <b>Beyoung - React</b>  
+    <br>
+</h3>
 
-## O que fazer?
+## :triangular_flag_on_post: What is it? 
+  Create a responsive single page application using React (library), consuming webservices (GET) provided on a simple API using HTTP-SERVER and filtering data for each user. It was developed using React Hooks to create components, Styled Components on styles, API services using Fetch method, React icons for icons, React switch and ThemeProvider for theming dark and light mode, React spinners to create a loader and React INTL to display currency data correctly.
 
-1. Criar uma tela com campo para digitar email;
-2. Consumir uma API que retorna os pedidos desse email;
-3. Listar algumas informações dos pedidos ou uma mensagem de que não há pedidos;
-4. Campo para filtrar pelo número do pedido
-5. Ao clicar num pedido exibir as informações completas;
-6. Ter opção de "deslogar" para voltar para a tela de email;
-7. Layout responsivo, com preferência para a versão MOBILE.
+  <h3 align="center"> :iphone: Demo on Mobile: </h3>
+  <p align="center">
+    <img src="https://media.giphy.com/media/hvp1f9oZrBHmDjXX4b/giphy.gif" width="600px" align="center" alt="demo-mobile">
+  </p>
+  
+  <h3 align="center"> :computer: Demo on Desktop: </h3>
+  <p align="center">
+    <img src="https://media.giphy.com/media/Vd2aK0T7FiQETvOE4P/giphy.gif" width="600px" align="center" alt="demo-desktop">
+  </p>
+  
+## :fireworks: Developing Tools: 
+  - React v.16.13.1 with React Hooks (Frontend)
+  - Lint
+  - Styled Components for styling and Create Global Style, Theme Provider and Styled Theming
+  - React Icons for icons
+  - React INTL for currency data
+  - React switch to toggle dark and light mode
+  - React routes to manage routes
+  - VSCode (Editor)
+  - HTTP-SERVER to fetch data
+  - Insonmia to test get requests
+  - Firefox Devtools
 
-## Iniciar projeto
+## :rocket: Goal:
+  Create a responsive single page application using React (library), consuming webservices (GET) that are available in API folder
 
-* `yarn install` para instalar as dependências
-* `yarn dev` para iniciar o projeto
+## :chart_with_upwards_trend: What I've learned or improved on my knowledge: 
+  - Handle Error using .then and .catch and ternary operators to render components condiotinally
+  - Using React hooks with callbacks to avoid lint warnings
+  - Styled Components with Theme Provider and react-switch to manage dark and light mode in a simple way
+  - INTL to manage currency data and display it correctly
+  - Manage props in a better way without using REDUX
+  - useContext to create a personal Theme Provider
+  
+## :feet: How to clone or run?
+  - Download the zip or clone using github
+  - There's a API folder and a frontend folder
+  - In the main folder run in your command line ``` npm  run dev ```
+ 
+## :metal: Contributions
+Pull requests are always welcomed. For major alterations please think about openning an issue first.
+Any improvments advices would be great, don't hesitate on contacting me :smile:
 
-O Front-End estará disponível em: [http://localhost:3000](http://localhost:3000).
+## License
+- Project 100% solo - concluded in 3 days. 
+- MIT License - Copyright (c) 2020 william-takayama
 
-## Back-End
-O Back-End estará disponível em: [http://localhost:5000](http://localhost:5000)
-
-Os seguintes emails possuem pedidos: jose@email.com, maria@email.com e pedro@email.com.
-
-O endpoint para buscar todos os pedidos de cada email é: http://localhost:5000/EMAIL/orders.json
-
-O endpoint para buscar as informações completas de um pedido é: http://localhost:5000/EMAIL/ID_PEDIDO.json
-
-Exemplos:
-* http://localhost:5000/jose@email.com/orders.json
-* http://localhost:5000/jose@email.com/267014.json
-
-Boa sorte!
-
-## Base para layout (não fazer exatamente igual)
-
-### Login
-![Login](images/login.png?raw=true "Login")
-
-### Pedidos
-![Pedidos](images/pedidos.png?raw=true "Pedidos")
-
-### Detalhes do pedido
-![Detalhes do pedido](images/detalhes-do-pedido.png?raw=true "Detalhes do pedido")
