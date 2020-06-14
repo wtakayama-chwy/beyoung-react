@@ -7,6 +7,15 @@
     <br>
 </h3>
 
+<p align="center">
+  <a href="https://beyoung.com.br">
+    <img alt="Made with React" src="https://img.shields.io/badge/created%20with-React-blue">
+  </a>
+  <a>
+  <img alt="License" src="https://img.shields.io/github/license/vitorserrano/ecoleta?color=%237519C1">
+  <br><br>
+</p>
+
 ## :triangular_flag_on_post: What is it? 
   Create a responsive single page application using React (library), consuming webservices (GET) provided on a simple API using HTTP-SERVER and filtering data for each user. It was developed using React Hooks to create components, Styled Components on styles, API services using Fetch method, React icons for icons, React switch and ThemeProvider for theming dark and light mode, React spinners to create a loader and React INTL to display currency data correctly.
 
