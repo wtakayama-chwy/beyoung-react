@@ -8,11 +8,12 @@ export default createGlobalStyle`
         padding: 0;
     }
     body {
-        font-family: "Open Sans", Helvetica, sans-serif, arial;
+        /* font-family: "Open Sans", Helvetica, sans-serif, arial; */
+        font-family: 'Rajdhani', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;        
-        font-size: 16px;
-        font-weight: 300;
+        font-size: 18px;
+        font-weight: 400;
         line-height: 1.2222222222em;
         text-align: left;
         background: ${backgroundColor};

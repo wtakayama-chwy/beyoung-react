@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { FormattedNumber } from 'react-intl'
 import styled from 'styled-components'
+
+// Helpers
 import { invertColor, textColor } from '../Themes/theme'
 import { spacing } from '../Helpers/spacing'
 import { mediaQuery } from '../Helpers/mediaQuery'
-
+// Components
 import LinkWrapper from '../../services/LinkWrapper'
+import UserNotFound from '../Errors/UserNotFound'
 import UserWelcome from '../UserWelcome/UserWelcome'
 import Button from '../Button/StyledButton'
 import ApiService from '../../services/api'
+import Loading from '../Loading/Loading'
 
 const StyledPedido = styled.div`
     display: flex;
@@ -82,9 +86,11 @@ const Pedido = (props) => {
     const user = props.match.params.user
     const [name, setName] = useState('')
     const [pedidos, setPedidos] = useState([])
+    const [validRes, setValidRes] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [isFiltered, setIsFiltered] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const handleChange = e => {
         if (e.target.value) {
@@ -97,11 +103,20 @@ const Pedido = (props) => {
 
     const getPedidos = useCallback(
         () => {
-            apiService.ListPedidos(user)
-                .then(data => {
-                    setPedidos(data)
-                    setName(data[0].name)
-                })
+            setLoading(true)
+            setTimeout(() => {
+                apiService.ListPedidos(user)
+                    .then(data => {
+                        setPedidos(data)
+                        setName(data[0].name)
+                        setValidRes(true)
+                        setLoading(false)
+                    })
+                    .catch(err => {
+                        setValidRes(false)
+                        setLoading(false)
+                    })
+            }, 300);
         },
         [apiService, user],
     )
@@ -123,61 +138,70 @@ const Pedido = (props) => {
 
     return (
         <>
-            {name && (
-                <UserWelcome name={name} />
-            )}
-            <StyledSearchBar
-                type="text"
-                name="searchbar"
-                placeholder="Buscar pedido"
-                onChange={handleChange}
-            />
-            {pedidos && !isFiltered ? (
-                pedidos.map(pedido => (
-                    <StyledPedido key={pedido.id}>
-                        <h3>Número do Pedido</h3>
-                        <h4 className="pedido">{pedido.id}</h4>
-                        <div>
-                            <h4>Data da Compra</h4>
-                            <time>{pedido.date}</time>
-                        </div>
-                        <div>
-                            <h4>Status</h4>
-                            <p>{pedido.status}</p>
-                        </div>
-                        <div>
-                            <h4>Total</h4>
-                            <p><FormattedNumber style={`currency`} currency="BRL" value={pedido.total} /></p>
-                        </div>
-                        <LinkWrapper className="centeredButton" to={`/pedidos/${user}/detalhes/${pedido.id}`}>
-                            <Button>VER COMPLETO</Button>
-                        </LinkWrapper>
-                    </StyledPedido>
-                )
-                )) : (
-                    searchResults.map(pedido => (
-                        <StyledPedido key={pedido.id}>
-                            <h3>Número do Pedido</h3>
-                            <h4 className="pedido">{pedido.id}</h4>
-                            <div>
-                                <h4>Data da Compra</h4>
-                                <time>{pedido.date}</time>
-                            </div>
-                            <div>
-                                <h4>Status</h4>
-                                <p>{pedido.status}</p>
-                            </div>
-                            <div>
-                                <h4>Total</h4>
-                                <p><FormattedNumber style={`currency`} currency="BRL" value={pedido.total} /></p>
-                            </div>
-                            <LinkWrapper className="centeredButton" to={`/pedidos/${user}/detalhes/${pedido.id}`}>
-                                <Button>VER COMPLETO</Button>
-                            </LinkWrapper>
-                        </StyledPedido>
-                    ))
-                )
-            }
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
+                    {!validRes && (
+                        <UserNotFound />
+                    )}
+                    {name && (
+                        <UserWelcome name={name} />
+                    )}
+                    <StyledSearchBar
+                        type="text"
+                        name="searchbar"
+                        placeholder="Buscar pedido"
+                        onChange={handleChange}
+                    />
+                    {pedidos && !isFiltered ? (
+                        pedidos.map(pedido => (
+                            <StyledPedido key={pedido.id}>
+                                <h3>Número do Pedido</h3>
+                                <h4 className="pedido">{pedido.id}</h4>
+                                <div>
+                                    <h4>Data da Compra</h4>
+                                    <time>{pedido.date}</time>
+                                </div>
+                                <div>
+                                    <h4>Status</h4>
+                                    <p>{pedido.status}</p>
+                                </div>
+                                <div>
+                                    <h4>Total</h4>
+                                    <p><FormattedNumber style={`currency`} currency="BRL" value={pedido.total} /></p>
+                                </div>
+                                <LinkWrapper className="centeredButton" to={`/pedidos/${user}/detalhes/${pedido.id}`}>
+                                    <Button>VER COMPLETO</Button>
+                                </LinkWrapper>
+                            </StyledPedido>
+                        ))
+                    ) : (
+                            searchResults.map(pedido => (
+                                <StyledPedido key={pedido.id}>
+                                    <h3>Número do Pedido</h3>
+                                    <h4 className="pedido">{pedido.id}</h4>
+                                    <div>
+                                        <h4>Data da Compra</h4>
+                                        <time>{pedido.date}</time>
+                                    </div>
+                                    <div>
+                                        <h4>Status</h4>
+                                        <p>{pedido.status}</p>
+                                    </div>
+                                    <div>
+                                        <h4>Total</h4>
+                                        <p><FormattedNumber style={`currency`} currency="BRL" value={pedido.total} /></p>
+                                    </div>
+                                    <LinkWrapper className="centeredButton" to={`/pedidos/${user}/detalhes/${pedido.id}`}>
+                                        <Button>VER COMPLETO</Button>
+                                    </LinkWrapper>
+                                </StyledPedido>
+                            ))
+                        )}
+                </>
+                )}
+
         </>
     )
 }

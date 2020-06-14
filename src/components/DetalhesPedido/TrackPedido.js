@@ -55,7 +55,7 @@ const TrackPedido = ({status}) => {
                         {(status === el.label) ?  (
                             <span><FaCheckCircle color={colors.green}/></span>
                         ) : (
-                            <span><FaRegCircle color={textColor} /></span>
+                            <span><FaRegCircle color={colors.gray} /></span>
                         )}
                         <label>{el.label}</label>
                     </li>                

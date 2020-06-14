@@ -20,7 +20,7 @@ const ApiService = {
 
     HandleError: res => {
         if(!res.ok) {
-            throw new Error(res.responseText)
+            throw new Error(res.statusText)
         }
         return res
     }

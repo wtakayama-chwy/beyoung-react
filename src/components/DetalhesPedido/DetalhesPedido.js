@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import { textColor, cardBackgroundColor } from '../Themes/theme'
 import { spacing } from '../Helpers/spacing'
+
+import Loading from '../Loading/Loading'
 import UserWelcome from '../UserWelcome/UserWelcome'
 import ResumoCompra from './ResumoCompra'
 import TrackPedido from './TrackPedido'
@@ -30,6 +32,8 @@ const StyledDetalhes = styled.section`
     .title-pedido {
         text-transform: uppercase;
         margin-bottom: 1.5em;
+        text-align: center;
+        width: inherit;
     }
 `
 
@@ -41,14 +45,16 @@ const DetalhesPedido = (props) => {
 
     const[name, setName] = useState('')
     const[detalhes, setDetalhes] = useState([])
+    const[loading, setLoading] = useState(true)
 
     const getDetalhes = useCallback(
         () => {
             apiService.ListDetalhes(user, pedido)
-                .then(data => {
-                    setDetalhes(data)
-                    setName(data.name)
-                })
+            .then(data => {
+                setLoading(false)
+                setDetalhes(data)
+                setName(data.name)
+            })
         },
         [apiService, pedido, user],
     )
@@ -59,13 +65,19 @@ const DetalhesPedido = (props) => {
 
     return (
         <>
-            <UserWelcome name={name}/>
-            <StyledDetalhes>
-                <h3 className="title-pedido">Número do Pedido: {detalhes.id}</h3>
-                <ResumoCompra {...detalhes}/>
-                <TrackPedido {...detalhes}/>
-                <DeliveryData {...detalhes}/>
-            </StyledDetalhes>
+        {loading ? (
+            <Loading />
+        ): (
+            <>
+                <UserWelcome name={name}/>
+                <StyledDetalhes>
+                    <h3 className="title-pedido">Número do Pedido: {detalhes.id}</h3>
+                    <ResumoCompra {...detalhes}/>
+                    <TrackPedido {...detalhes}/>
+                    <DeliveryData {...detalhes}/>
+                </StyledDetalhes>
+            </>
+        )}
         </>
     )
 }

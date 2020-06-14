@@ -15,12 +15,12 @@ const StyledDeliveryData = styled.div `
         text-align: center;
     }
        
-    h5 {
-        text-transform: uppercase;        
+    h4 {
+        text-transform: uppercase;     
     }
     p {
+        line-height: 1.2em;   
         padding: 0;
-        font-size: 0.8em;
     }
 `
 
@@ -33,10 +33,10 @@ const DeliveryData = (detalhes) => {
         <StyledDeliveryData>
             {address && (
                 <>
-                    <h5>Entregar em:</h5>
+                    <h4>Entregar em:</h4>
                     <p>{address.street}, {address.number}</p>
                     <p>{address.city}, {address.state} - {address.postcode}</p>
-                    <h5>Forma de pagamento:</h5>
+                    <h4>Forma de pagamento:</h4>
                     <p>{paymentMethod}</p>
                 </>
             )}

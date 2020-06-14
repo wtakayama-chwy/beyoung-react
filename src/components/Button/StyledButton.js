@@ -26,6 +26,7 @@ const StyledButton = styled.button`
 
     @media ${mediaQuery.mobile} {
         max-width: ${spacing.containerMobile};
+        font-size: 0.8em;
     }
     :focus {
         outline: none;    
