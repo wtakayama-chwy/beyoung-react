@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaCheckCircle, FaRegCircle } from 'react-icons/fa'
 import { colors } from '../Helpers/colors'
-import { textColor } from '../Themes/theme'
 import { mediaQuery } from '../Helpers/mediaQuery'
 
 const StyledTrackPedido = styled.div `
